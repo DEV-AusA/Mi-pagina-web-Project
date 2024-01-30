@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">    
@@ -9,23 +9,24 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Monoton&display=swap" rel="stylesheet">
+    <link rel="icon" href="./assets/img/icons/logo-ausa.png" type="image/x-icon">
     <title>Mis Actividades - AusA Project</title>
 </head>
 <body>
     
     <header>
         <div class="redes">
-            <a href="#"><img class="iconos" src="./assets/img/icons/ig.png" alt=""></a>
-            <a href="#"><img class="iconos" src="./assets/img/icons/yt.png" alt=""></a>
-            <a href="https://github.com/DEV-AusA?tab=repositories" target="_blank"><img class="iconos" src="./assets/img/icons/git.png" alt=""></a>
+            <a href="#" aria-label="Sigueme en mi Instagram"><img class="iconos" src="./assets/img/icons/ig.png" alt=""></a>
+            <a href="#" aria-label="Unete a mi canal de youtube y diviertete con mis videos"><img class="iconos" src="./assets/img/icons/yt.png" alt=""></a>
+            <a href="https://github.com/DEV-AusA?tab=repositories" target="_blank" aria-label="Deleitate con mis proyectos"><img class="iconos" src="./assets/img/icons/git.png" alt=""></a>
           </div>
         <div>
             <h1>Cesar Ausa</h1>            
         </div>
         <div class="redes">
-            <a href="#lin" target="_blank"><img class="iconos" src="./assets/img/icons/lin.png" alt=""></a>
-            <a href="#"><img class="iconos" src="./assets/img/icons/whats.png" alt=""></a>
-            <a href="#"><img class="iconos" src="./assets/img/icons/tik-tok.png" alt=""></a>
+            <a href="#lin" target="_blank" aria-label="Visita mi perfil en Linkedin"><img class="iconos" src="./assets/img/icons/lin.png" alt=""></a>
+            <a href="#" aria-label="Comunicate conmigo y mandame un mensaje por Whatsapp"><img class="iconos" src="./assets/img/icons/whats.png" alt=""></a>
+            <a href="#" aria-label="Riete conmigo compartiendo experiencias en Tiktok"><img class="iconos" src="./assets/img/icons/tik-tok.png" alt=""></a>
           </div>
     </header>
 
@@ -47,7 +48,7 @@
 
         <div class="container-mis-lenguajes">
             <div class="titulo-pagina">
-                <h2>Mis lenguajes favoritos</h2>
+                <h2>Mis tecnologias favoritas</h2>
             </div>
 
             <div class="container-imagenes-lenguajes">
@@ -74,14 +75,14 @@
 
             <section>
                 <div class="formulario-datos">
-                    <label for="nombre">Actividad</label>
+                    <label for="titulo-actividad">Actividad</label>
                     <input class="input-patron" type="text" id="titulo-actividad" placeholder="¿Que cosas te gustan hacer?">
 
-                    <label for="imagen">Link de la imagen</label>
-                    <input class="input-patron" type="link" name="imagen" id="link-imagen" placeholder="Cuentanos mas...">
+                    <label for="link-imagen">Link de la imagen</label>
+                    <input class="input-patron" type="link" name="imagen" id="link-imagen"placeholder="Pega aqui el link de alguna imagen" >
 
-                    <label for="box-description">Descripcion</label>
-                    <textarea class="input-patron" name="box-description" id="descripcion" cols="70" rows="10"></textarea>
+                    <label for="descripcion">Descripcion</label>
+                    <textarea class="input-patron" name="box-description" id="descripcion" cols="70" rows="10" placeholder="Cuentanos mas..."></textarea>
 
                     <div class="botones">
                         <button class="boton" id="boton-agregar">Agregar</button>
@@ -92,15 +93,17 @@
             </section>            
         </div>
         
-        <div id="coleccion" class="oculto">
+        <div class="container-tarjetas">
+            <div id="coleccion" class="oculto"></div>
         </div>
-
+        
     </main>
 
     <footer>
-
-    </footer>
-    
+        <img src="./assets/img/icons/logo-ausa.png" alt="">
+        <h5>© Desarrollado por AusA</h5>
+        <button type="button"><a href="https://github.com/DEV-AusA?tab=repositories" target="_blank">Mi GitHub</a></button>
+    </footer> 
     
     <script src="./scripts/index.js"></script>
 </body>

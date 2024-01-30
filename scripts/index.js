@@ -126,8 +126,15 @@ const borrarTarjeta = () =>{
     console.log(nuevaActividad);
 }
 
+const repetirTarjeta= () =>{
+    const copia = document.querySelector('.coleccion-tarjetas').cloneNode(true);
+    document.querySelector('.container-tarjetas').appendChild(copia)
+}
+
 const botonAgregar = document.getElementById('boton-agregar');
 const botonBorrar = document.getElementById('boton-borrar');
 //    --> cuando hagas el evento click --> ejecuta el cb 'agregarTarjeta'
 botonAgregar.addEventListener('click', agregarTarjeta);
 botonBorrar.addEventListener('click', borrarTarjeta);
+// repetirt arjetas
+repetirTarjeta();
