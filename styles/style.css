@@ -175,31 +175,15 @@ header h1:hover{
     overflow: auto; /* previene el desborde de los elementos */
 }
 
-@keyframes slide{
-    from{
-        transform: translateX(0);
-    }
-    to{
-        transform: translateX(-100%);
-    }
-}
-
 .tarjeta:hover{
     transform: scale(0.9);
 }
 
-.coleccion-tarjetas:hover, .tarjeta {
-    animation-play-state: paused;
-}
 
 .coleccion-tarjetas{
     box-sizing: border-box;
     display: flex;
     justify-content: center;
-    /*animation: 10s slide infinite linear; /* requisito animacion*/
-    @media (max-width: 800px) {
-        animation: none; /* Desactivando la animación en pantallas pequeñas */
-    }
 }
 
 .tarjeta{
