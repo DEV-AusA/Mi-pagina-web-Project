@@ -6,7 +6,10 @@
     <link rel="stylesheet" href="./styles/reset.css">
     <link rel="stylesheet" href="./styles/style.css">
     <link rel="shortcut icon" href="#" />
-    <title>AusA Project</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Monoton&display=swap" rel="stylesheet">
+    <title>Mis Actividades - AusA Project</title>
 </head>
 <body>
     
@@ -25,26 +28,79 @@
             <a href="#"><img class="iconos" src="./assets/img/icons/tik-tok.png" alt=""></a>
           </div>
     </header>
-    <div class="formulario-datos">
 
-        <h2>Mis Actividades</h2>
+    <main>
+        <div class="container-sobre-mi">
+            <div class="titulo-pagina">
+                <h2>Sobre mi</h2>
+            </div>
+            
+            <section>
+                <img class="imagen-sobre-mi" src="./assets/img/hombre leyendo.jpg" alt="hombre-leyendo">
+                <p> Nacido en la vibrante ciudad de Lima, Perú, posterior a una fascinante infancia llena de mucha aventura y diversion, posterior a esta trayectoria me llevaron a establecerme en la fascinante tierra de Argentina, donde construí mi propio rincón de felicidad junto a mi amada familia. En este viaje de altos y bajos, he descubierto mi pasión por la tecnología desde muy joven, fuente de inspiración que han marcado mi camino.</p>
+                <p>Mi hogar está lleno de risas y amor gracias a mi familia y a mis adorables hijos, quienes son mi mayor fuente de motivación. Sin embargo, mi espíritu curioso y apasionado por los desafíos me impulsa a explorar nuevos horizontes.</p>
+                <p>En mi búsqueda de conocimiento, he decidido aventurarme en el emocionante mundo de la programación. La idea de crear, innovar y dar vida a ideas a través de líneas de código me llena de emoción. Este próximo capítulo en mi vida no solo es un desafío personal, sino también una oportunidad para crecer y contribuir al fascinante universo de la tecnología.</p>
+                <p>Así que, desde mi humilde comienzo en la ciudad Lima hasta mi actual morada en Argentina, estoy listo para sumergirme en el emocionante viaje que me llevará al fascinante mundo de la programación, donde mi primer objetivo seria convertirme en un Desarrollador Back-End y con la esperanza de convertirme en un creador de mundos digitales y dejar mi huella en este vasto y dinámico paisaje tecnológico.</p>
 
-        <label for="nombre">Actividad</label>
-        <input type="text" id="titulo-actividad">
+            </section>
+        </div>
 
-        <label for="imagen">Link de la imagen</label>
-        <input type="link" name="imagen" id="link-imagen">
+        <div class="container-mis-lenguajes">
+            <div class="titulo-pagina">
+                <h2>Mis lenguajes favoritos</h2>
+            </div>
 
-        <label for="box-description">Descripcion</label>
-        <textarea name="box-description" id="descripcion" cols="70" rows="10"></textarea>
+            <div class="container-imagenes-lenguajes">
+                <div class="imagenes-lenguaje">
+                    <h3>CSS</h3>
+                    <img src="./assets/img/CSS logo.png" alt="">
+                </div>
+                <div class="imagenes-lenguaje">
+                    <h3>JAVASCRIPT</h3>
+                    <img src="./assets/img/JS logo.png" alt="">
+                </div>
+                <div class="imagenes-lenguaje">
+                    <h3>HTML</h3>
+                    <img src="./assets/img/HTML logo.png" alt="">
+                </div>               
+            </div>
 
-        <button id="boton-agregar">Agregar</button>
-        <button id="boton-borrar">Borrar</button>
-    </div>
+        </div>
+        
+        <div class="container-actividades">
+            <div class="titulo-pagina">
+                <h2>Mis Actividades</h2>
+            </div>
 
-    <div id="coleccion">
+            <section>
+                <div class="formulario-datos">
+                    <label for="nombre">Actividad</label>
+                    <input class="input-patron" type="text" id="titulo-actividad" placeholder="¿Que cosas te gustan hacer?">
 
-    </div>
+                    <label for="imagen">Link de la imagen</label>
+                    <input class="input-patron" type="link" name="imagen" id="link-imagen" placeholder="Cuentanos mas...">
+
+                    <label for="box-description">Descripcion</label>
+                    <textarea class="input-patron" name="box-description" id="descripcion" cols="70" rows="10"></textarea>
+
+                    <div class="botones">
+                        <button class="boton" id="boton-agregar">Agregar</button>
+                        <button class="boton" id="boton-borrar">Borrar</button>
+                    </div>
+                    
+                </div>
+            </section>            
+        </div>
+
+        <div id="coleccion" class="oculto">
+        </div>   
+
+    </main>
+
+    <footer>
+
+    </footer>
+    
     
     <script src="/scripts/index.js"></script>
 </body>

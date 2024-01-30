@@ -27,9 +27,6 @@ class Repository{
     }
 }
 
-//const actividad1 = new Activity('Cocinar', 'Hacer el almuerzo', 'www.cocinar.com');
-// actividad1.createActivity('Cocinar', 'Hacer el almuerzo', 'www.cocinar.com');
-
 const cargarActividad=(object)=>{
       
     // destructuring las propiedades del object
@@ -63,18 +60,18 @@ const cargarActividad=(object)=>{
     return nuevoDiv;
 }
 
-// console.log(cargarActividad(actividad1));
-
-// let repository1 = new Repository();
-// repository1.createActivity('Cocinar', 'Hacer el almuerzo', 'www.cocinar.com');
-// repository1.createActivity('Dormir', 'Hacer el la cama antes', 'www.dormir.com');
-
 const convertirInstancias = (object) => {
 
     // obtengo el container padre con id 'coleccion' de HTML
     const container = document.getElementById('coleccion');
     //vacio el container
     container.innerHTML = '';
+    //obtengo el classname de coleccion
+    const estaOoculto = container.className;
+    // cambio de ocluto a coleccion-tarjetas
+    if (estaOoculto == 'oculto') {
+        container.className = 'coleccion-tarjetas';
+    }
     // guardo el array de actividades
     const repository = object.getAllActivities();
     // mapeo cada actividad usando la function 'cargarActividad' asi me devuelve un div x cada actividad
