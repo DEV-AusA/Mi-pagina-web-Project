@@ -61,15 +61,15 @@ header h1:hover{
     width: 320px;
     margin: 0 0 0 100px;
 }
-section{
+.container-sobre-mi section{
     margin: 30px auto;
 }
-section img{
+.container-sobre-mi section img{
     width: 300px;
     margin: 0 35px 10px 100px;
     float: left;
 }
-section p{
+.container-sobre-mi section p{
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     color: white;
     margin: 20px 40px 20px 100px;
@@ -196,18 +196,21 @@ section p{
     box-sizing: border-box;
     display: flex;
     justify-content: center;
-    animation: 10s slide infinite linear; /* requisito animacion*/
+    /*animation: 10s slide infinite linear; /* requisito animacion*/
+    @media (max-width: 800px) {
+        animation: none; /* Desactivando la animación en pantallas pequeñas */
+    }
 }
 
 .tarjeta{
-    background-color: #1B2A41;
+    background-color: #1B2A41;  
     border-radius: 15px;
     box-sizing: border-box;
     margin: 15px;
     box-shadow: 0 0 10px 1px rgb(101, 136, 170);
     display: inline-block;
     transition: 400ms;
-    
+    overflow-wrap: break-word; /*previene que el texto se salga a la derecha y hace que vaya hacia abajo*/    
 }
 
 .tarjeta h3{
@@ -273,4 +276,69 @@ footer a{
 
 footer a:hover{
     transition: 400ms;
+}
+
+/* RESPONSIVE*/
+@media screen and (max-width:375px) {
+
+    /* HEADER */
+    header{
+        display: block;
+    }
+    .redes{
+        display: flex;
+        justify-content: center;
+    }
+    header h1{
+        text-align: center;
+        margin: 5px;
+    }
+    .iconos:active{
+        background: #149ddd;
+    }
+    main{
+        margin: 0 auto;
+    }
+    .titulo-pagina{
+        margin: 0 10px;
+        padding: 0 20px;
+    }
+    .titulo-pagina h2{
+        width: auto;
+        margin: 0 20px;
+    }
+    .container-sobre-mi section{
+        margin: 30px auto;
+        padding: 0 20px;
+    }
+    .container-sobre-mi section img{
+        max-width: 100%;
+        margin: 0;
+        float: none;
+    }
+    .container-sobre-mi section p{
+        margin: 20px 10px;
+    }
+    .container-imagenes-lenguajes{
+        display: block;
+        padding: 0;
+    }
+    .imagenes-lenguaje h3{
+        padding-top: 15px;
+    }
+    .formulario-datos{
+        width: auto;
+        text-align: center;
+        margin: 10px 0;
+        padding: 0 20px;
+    }
+    .container-tarjetas{
+        margin: 0;
+    }
+    .boton:active {
+        transform: scale(0.9);
+    }
+    footer button:active{
+        transform: scale(0.9);
+    }
 }
