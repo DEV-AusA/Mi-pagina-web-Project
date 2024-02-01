@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">    
@@ -74,22 +74,27 @@
             </div>
 
             <section>
-                <div class="formulario-datos">
-                    <label for="titulo-actividad">Actividad</label>
-                    <input class="input-patron" type="text" id="titulo-actividad" placeholder="¿Que cosas te gustan hacer?">
+                <form id="formulario" class="formulario-datos">
+                    <div>
+                        <label for="titulo-actividad">Actividad</label>
+                        <input class="input-patron" type="text" id="titulo-actividad" placeholder="¿Que cosas te gustan hacer?">
+                    </div>
 
-                    <label for="link-imagen">Link de la imagen</label>
-                    <input class="input-patron" type="link" name="imagen" id="link-imagen"placeholder="Pega aqui el link de alguna imagen" >
+                    <div>
+                        <label for="link-imagen">Link de la imagen</label>
+                        <input class="input-patron" type="link" name="imagen" id="link-imagen"placeholder="Pega aqui el link de alguna imagen" >
+                    </div>
 
-                    <label for="descripcion">Descripcion</label>
-                    <textarea class="input-patron" name="box-description" id="descripcion" cols="70" rows="10" placeholder="Cuentanos mas..."></textarea>
-
-                    <div class="botones">
-                        <button class="boton" id="boton-agregar">Agregar</button>
-                        <button class="boton" id="boton-borrar">Borrar</button>
+                    <div>
+                        <label for="descripcion">Descripcion</label>
+                        <textarea class="input-patron" name="box-description" id="descripcion" cols="70" rows="10" placeholder="Cuentanos mas..."></textarea>
                     </div>
                     
-                </div>
+                    <button class="boton" id="boton-agregar" type="submit">Agregar</button>
+                    <button class="boton" id="boton-borrar">Borrar</button>
+                                       
+                </form>
+
             </section>            
         </div>
         

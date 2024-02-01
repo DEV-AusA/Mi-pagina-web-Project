@@ -1,6 +1,7 @@
+
 class Activity{
-    constructor(title, description, imagenUrl){
-        this.id = 0;
+    constructor(id, title, description, imagenUrl){
+        this.id = id;
         this.title = title;
         this.description = description;
         this.imagenUrl = imagenUrl;
@@ -16,10 +17,10 @@ class Repository{
         return this.activities;
     }
 
-    createActivity(title, description, imagenUrl){
-        let newActivity = new Activity(title, description, imagenUrl); // con cada nueva actividad se crea un nuevo object
-        newActivity.id = this.activities.length + 1; // utilizo la longitud de this.activities para usarlo como id a declarar
-        this.activities.push(newActivity);
+    createActivity(id, title, description, imagenUrl){
+        let nuevaActividad = new Activity(id, title, description, imagenUrl); // con cada nueva actividad se crea un nuevo object
+        nuevaActividad.id = this.activities.length + 1; // utilizo la longitud de this.activities para usarlo como id a declarar
+        this.activities.push(nuevaActividad);
     }
     
     deleteActivity(id){
@@ -35,17 +36,19 @@ const cargarActividad=(object)=>{
     // creo los elementos HTML para el DOM
     const nuevoDiv = document.createElement('div');
     const nuevoTitulo = document.createElement('h3');
+    const nuevoDivImagen = document.createElement('div');
     const nuevoLinkImagen = document.createElement('img');
     const nuevaDescripcion = document.createElement('p');
 
     // cargo los valores obtenidos en las propiedades creadas
-    nuevoTitulo.textContent = title; // 
-    nuevoLinkImagen.src = imagenUrl; //
+    nuevoTitulo.textContent = title;
+    nuevoLinkImagen.src = imagenUrl;
     nuevaDescripcion.textContent = description;
 
     // creamos la clases a las propiedades creadas en el div
     nuevoDiv.classList.add('tarjeta')
     nuevoTitulo.classList.add('titulo-actividad');
+    nuevoDivImagen.classList.add('container-image');
     nuevoLinkImagen.classList.add('nueva-imagen');
 
     // sugerencia de chatgpt
@@ -54,7 +57,8 @@ const cargarActividad=(object)=>{
 
     //appendeo dentro del div padre 'coleccion' el h3, img, p
     nuevoDiv.appendChild(nuevoTitulo);
-    nuevoDiv.appendChild(nuevoLinkImagen);
+    nuevoDivImagen.appendChild(nuevoLinkImagen);
+    nuevoDiv.appendChild(nuevoDivImagen);
     nuevoDiv.appendChild(nuevaDescripcion);
     
     return nuevoDiv;
@@ -82,34 +86,37 @@ const convertirInstancias = (object) => {
     datosMapeados.forEach(div => {
         container.appendChild(div)
     });    
-    //console.log(datosMapeados);
 }
 
 // instancio nueva clase de repository
 const nuevaActividad = new Repository();
 
-const agregarTarjeta = () =>{   
+const agregarTarjeta = () =>{
 
     // obtengo los valores de los input al momento de hacer click
-    const tituloActividad = document.getElementById('titulo-actividad').value;
-    const linkImagen = document.getElementById('link-imagen').value;
-    const descripcion = document.getElementById('descripcion').value;
+    const tituloActividad = document.getElementById('titulo-actividad');
+    const linkImagen = document.getElementById('link-imagen');
+    const descripcion = document.getElementById('descripcion');
+
+    const valorTituloActividad = tituloActividad.value;
+    const valorLinkImagen = linkImagen.value;
+    const valorDescripcion = descripcion.value;
     
-    if (tituloActividad == '' || linkImagen == '' || descripcion == '') {
+    if (valorTituloActividad == '' || valorLinkImagen == '' || valorDescripcion == '') {
         alert('Falta completar algun campo');
     }
     else {        
-        nuevaActividad.createActivity(tituloActividad, descripcion, linkImagen);        
+        let id = 0;
+        nuevaActividad.createActivity(id, valorTituloActividad, valorDescripcion, valorLinkImagen);        
         convertirInstancias(nuevaActividad);
+        // reset de inputs despues de agregar la tarjeta
+        tituloActividad.value = '';
+        linkImagen.value = '';
+        descripcion.value = '';
     }
-
-    // muestra el listado de los divs creados
-    console.log(nuevaActividad);
 }
 
 const borrarTarjeta = () =>{
-
-    console.log(nuevaActividad);
 
     // pregunto al usuario que id borrar
     const id = parseInt(prompt('Indique el numero de "id" a borrar'));
@@ -119,15 +126,29 @@ const borrarTarjeta = () =>{
     // lo borro del DOM
     itemABorrar.remove();
 
-    // lo borro del array de dla clase actual usando el id ingresado
+    // lo borro del array de la clase actual usando el id ingresado
     nuevaActividad.deleteActivity(id);
-
-    // muestra el listado de los divs restantes
-    console.log(nuevaActividad);
 }
 
 const botonAgregar = document.getElementById('boton-agregar');
 const botonBorrar = document.getElementById('boton-borrar');
-//    --> cuando hagas el evento click --> ejecuta el cb 'agregarTarjeta'
-botonAgregar.addEventListener('click', agregarTarjeta);
-botonBorrar.addEventListener('click', borrarTarjeta);
+
+// con esto evito el error del Quokka "Cannot read properties of null (reading 'addEventListener')"
+if (botonAgregar && botonBorrar) {
+    //    --> cuando hagas el evento click --> ejecuta el cb 'agregarTarjeta'
+    botonAgregar.addEventListener('click', agregarTarjeta);
+    botonBorrar.addEventListener('click', borrarTarjeta);
+}
+
+//obtengo el formulario con submit
+const formulario = document.querySelector('#formulario');
+// agrego un evento que previene el refresh de la pagina cuando se ejecute el submit
+formulario.addEventListener('submit', function(event) {
+   event.preventDefault() ;
+});
+
+// declaro las functions a exportar para los test
+module.exports = {
+    Activity,
+    Repository
+};

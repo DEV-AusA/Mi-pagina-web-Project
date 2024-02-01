@@ -195,6 +195,7 @@ header h1:hover{
     display: inline-block;
     transition: 400ms;
     overflow-wrap: break-word; /*previene que el texto se salga a la derecha y hace que vaya hacia abajo*/    
+    width: 350px;
 }
 
 .tarjeta h3{
@@ -206,10 +207,17 @@ header h1:hover{
     max-width: 300px;
 }
 
+.container-image{
+    display: flex;
+    justify-content: center;
+}
+
 .tarjeta img{
-    width: 300px;
+    width: auto;
     box-shadow: 0 0 5px 1px white;
     margin: 0 20px;
+    height: 150px;
+	object-fit: contain; /* ajusta la imagen manteniendo su relación de aspecto original y sin estirarse*/
 }
 
 .tarjeta p{
